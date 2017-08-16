@@ -1,0 +1,22 @@
+{
+  "name": "injury-scraper",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cheerio": "latest",
+    "cookie-parser": "~1.4.3",
+    "d3": "^3.5.17",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "htmlparser": "^1.7.7",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "request": "latest",
+    "serve-favicon": "~2.4.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
