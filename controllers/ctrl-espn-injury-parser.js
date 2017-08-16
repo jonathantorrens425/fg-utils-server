@@ -93,8 +93,9 @@ module.exports.getEspnInjuries = function(req, res) {
                             if($(playerRowElement).children('a').first()) {
                                 console.log('Player');
                                 tempPlayer.player_page = $(playerRowElement).children('a').first().attr('href');
-                                tempPlayer.player_name = $(playerRowElement).children('a').first().text();
-                                tempPlayer.pos1 = $(playerRowElement).children('td').first().text();
+
+                                tempPlayer.player_name = $(playerRowElement).children('td').first().text().split(',')[0].trim();
+                                tempPlayer.pos1 = $(playerRowElement).children('td').first().text().split(',').pop().trim();
                                 tempPlayer.injury_status = $(playerRowElement).children('td').eq(1).text();
                                 tempPlayer.status_date = $(playerRowElement).children('td').last(1).text();
                                 tempPlayer.espn_id = $(playerRowElement).attr('class').split('-').pop();
