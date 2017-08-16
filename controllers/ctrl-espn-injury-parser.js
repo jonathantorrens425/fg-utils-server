@@ -8,7 +8,13 @@ var d3 = require('d3');
 var htmlparser = require("htmlparser");
 
 
+
 module.exports.getEspnInjuries = function(req, res) {
+
+    var sendJSONResponse = function (res, status, content) {
+        res.status(status);
+        res.json(content);
+    };
 
     var url = "http://www.espn.com/nfl/injuries";
 
@@ -98,6 +104,9 @@ module.exports.getEspnInjuries = function(req, res) {
                     }
                 })
                 console.log(tempPlayerArray);
+                res.status(200);
+                res.json(tempPlayerArray);
+                // sendJSONReponse(res, 200, tempPlayerArray);
             })
         }
     });
@@ -105,7 +114,3 @@ module.exports.getEspnInjuries = function(req, res) {
 
 
 
-sendJSONResponse = function (res, status, content) {
-    res.status(status);
-    res.json(content);
-};
