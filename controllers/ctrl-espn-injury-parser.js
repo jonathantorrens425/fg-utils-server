@@ -91,20 +91,17 @@ module.exports.getEspnInjuries = function(req, res) {
                             console.log($(playerRowElement).children().first().text());
                         } else {
                             if($(playerRowElement).children('a').first()) {
-                                console.log('Player');
-                                tempPlayer.player_page = $(playerRowElement).children('a').first().attr('href');
-
+                                tempPlayer.player_page = $(this).children().first().children().first().attr('href');
                                 tempPlayer.player_name = $(playerRowElement).children('td').first().text().split(',')[0].trim();
                                 tempPlayer.pos1 = $(playerRowElement).children('td').first().text().split(',').pop().trim();
                                 tempPlayer.injury_status = $(playerRowElement).children('td').eq(1).text();
                                 tempPlayer.status_date = $(playerRowElement).children('td').last(1).text();
                                 tempPlayer.espn_id = $(playerRowElement).attr('class').split('-').pop();
-                                // console.log($(playerRowElement).children().text());
                             }
                         }
                     }
                 })
-                console.log(tempPlayerArray);
+                // console.log(tempPlayerArray);
                 res.status(200);
                 res.json(tempPlayerArray);
                 // sendJSONReponse(res, 200, tempPlayerArray);
